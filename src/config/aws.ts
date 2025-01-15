@@ -1,7 +1,7 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
 import { S3 } from '@aws-sdk/client-s3';
 
-// Fallback storage using localStorage
+
 const localStorageDB = {
   getItem: (key: string) => {
     try {
@@ -20,7 +20,7 @@ const localStorageDB = {
   }
 };
 
-// AWS Configuration
+
 export const awsConfig = {
   region: import.meta.env.VITE_AWS_REGION || 'us-east-1',
   credentials: {
@@ -29,14 +29,14 @@ export const awsConfig = {
   }
 };
 
-// Initialize AWS clients with fallback mechanisms
+
 export const createAWSClients = () => {
   try {
     const dynamoDB = new DynamoDB(awsConfig);
     const s3 = new S3(awsConfig);
     
     return {
-      // DynamoDB wrapper with fallback
+   
       db: {
         async saveGameState(userId: string, gameState: any) {
           try {
@@ -66,7 +66,7 @@ export const createAWSClients = () => {
           }
         }
       },
-      // S3 wrapper with fallback
+
       storage: {
         async getAsset(key: string) {
           try {
@@ -77,7 +77,7 @@ export const createAWSClients = () => {
             return result.Body;
           } catch (error) {
             console.warn('Falling back to local assets', error);
-            return `/assets/${key}`; // Fallback to local assets
+            return `/assets/${key}`;
           }
         }
       }
