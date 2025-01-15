@@ -2,7 +2,7 @@
 
 **NeonGenesis** is a futuristic strategy game that leverages AWS services for state management and asset storage. The game offers a sleek and interactive user interface where players can engage with strategic maps, manage units, complete quests, and more.
 
-![NeonGenesis Screenshot](./Screenshot%202025-01-15%20024425.png)
+![NeonGenesis Screenshot](./NeonGenesis.jpg)
 
 ---
 
